@@ -46,12 +46,6 @@ public class PhotoSliderActivity extends AppCompatActivity {
         mPageAdapter.notifyDataSetChanged();
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
-
-
     public class MyAdapter extends PagerAdapter {
 
         private LayoutInflater inflater;

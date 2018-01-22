@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     }
                 } else {
                     // error scenario
-                    String message = "Error in Photo Search: ";
+                    String message = "No Photos Found:\n";
                     if(null != photoSearchResponse && null != photoSearchResponse.error) {
                         if(photoSearchResponse.error.contains("Unable to resolve host"))
                             message = message.concat("Connection Error, Please try again!");
