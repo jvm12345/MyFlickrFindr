@@ -163,8 +163,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
      */
     public void searchFlickrPhotos(final String keyWord, int page, int total, boolean loadMore) {
 
-        if(!loadMore)
+        if(!loadMore) {
             showMessage("Searching photos for... " + keyWord);
+            mSearchPhotoList.clear();
+        }
         new FlickrPhotoAPIService().searchPhotoAsync(page, keyWord, total, new AsyncCallbackInf() {
             @Override
             public void onResponseCallback(int result, BaseApiResponse response) {
