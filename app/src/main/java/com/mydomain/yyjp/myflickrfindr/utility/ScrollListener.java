@@ -9,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 
 public abstract class ScrollListener extends RecyclerView.OnScrollListener {
 
-    private int visibleThreshold = 2;
     private int currentPage = 0;
     private int previousTotalItemCount = 0;
     private boolean loading = true;
@@ -17,7 +16,7 @@ public abstract class ScrollListener extends RecyclerView.OnScrollListener {
 
     private RecyclerView.LayoutManager mLayoutManager;
 
-    public ScrollListener(LinearLayoutManager layoutManager) {
+    protected ScrollListener(LinearLayoutManager layoutManager) {
         this.mLayoutManager = layoutManager;
     }
 
@@ -41,9 +40,10 @@ public abstract class ScrollListener extends RecyclerView.OnScrollListener {
             previousTotalItemCount = totalItemCount;
         }
 
+        int visibleThreshold = 2;
         if (!loading && (lastVisibleItemPosition + visibleThreshold) > totalItemCount) {
             currentPage++;
-            boolean ret = onLoadMore(currentPage, totalItemCount, view);
+            onLoadMore(currentPage, totalItemCount, view);
             loading = true;
         }
     }

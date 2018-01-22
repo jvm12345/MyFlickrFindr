@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private List<SearchPhoto> mSearchPhotoList;
     private String mKeyword;
     private SearchView mSearchView;
-    private MenuItem searchMenuItem;
     private RecyclerView mSearchRecyclerView;
     private RecentSearchAdapter mRecentSearchAdapter;
     private ArrayList<String> mRecentSearchList = new ArrayList<>();
@@ -124,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         inflater.inflate(R.menu.search_menu, menu);
 
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        searchMenuItem = menu.findItem(R.id.search);
+        MenuItem searchMenuItem = menu.findItem(R.id.search);
         mSearchView = (SearchView) searchMenuItem.getActionView();
         mSearchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
         mSearchView.setSubmitButtonEnabled(true);
@@ -267,7 +266,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         if(null != mSearchView)
             imm.hideSoftInputFromWindow(mSearchView.getWindowToken(), 0);
-        else
+        else if(null != mSearchPhotoGridView)
             imm.hideSoftInputFromInputMethod(mSearchPhotoGridView.getWindowToken(), 0);
     }
 }

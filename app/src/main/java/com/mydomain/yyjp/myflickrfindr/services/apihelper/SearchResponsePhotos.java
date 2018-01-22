@@ -11,7 +11,4 @@ public class SearchResponsePhotos {
     public List<SearchPhoto> photo;
     public String total;
     public Integer page;
-    public Integer pages;
-    public Integer perpage;
-    public String stat;
 }

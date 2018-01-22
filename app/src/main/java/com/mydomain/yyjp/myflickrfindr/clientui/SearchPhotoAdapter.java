@@ -40,7 +40,6 @@ public class SearchPhotoAdapter extends RecyclerView.Adapter<SearchPhotoAdapter.
                 @Override
                 public void onClick(View view) {
                     int index = getAdapterPosition();
-                    SearchPhoto searchPhoto = mSearchPhotoList.get(index);
                     Intent intent = new Intent(mActivity, PhotoSliderActivity.class);
                     intent.putExtra(EXTRA_PHOTO_INDEX, index);
                     mActivity.startActivity(intent);
@@ -50,7 +49,7 @@ public class SearchPhotoAdapter extends RecyclerView.Adapter<SearchPhotoAdapter.
         }
     }
 
-    public SearchPhotoAdapter(ArrayList<SearchPhoto> data, MainActivity activity) {
+    SearchPhotoAdapter(ArrayList<SearchPhoto> data, MainActivity activity) {
         this.mSearchPhotoList = data;
         mActivity = activity;
     }

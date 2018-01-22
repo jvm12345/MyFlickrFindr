@@ -43,7 +43,7 @@ public class RecentSearchAdapter extends RecyclerView.Adapter<RecentSearchAdapte
         }
     }
 
-    public RecentSearchAdapter(MainActivity activity, ArrayList<String> data) {
+    RecentSearchAdapter(MainActivity activity, ArrayList<String> data) {
         this.mRecentSearchList = data;
         mActivity = activity;
     }

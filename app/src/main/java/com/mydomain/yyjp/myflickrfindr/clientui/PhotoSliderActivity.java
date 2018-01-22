@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,23 +27,20 @@ public class PhotoSliderActivity extends AppCompatActivity {
     private static final String TAG = PhotoSliderActivity.class.getSimpleName();
     private int mSize;
     private List<SearchPhoto> searchPhotoList;
-    private ViewPager mViewPager;
-    private PagerAdapter mPageAdapter;
-    private int mCurrentPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mSize = 0;
-        mCurrentPage = 0;
+        int mCurrentPage = 0;
         searchPhotoList = FlickrFindrApplication.getInstance().getPhotoList();
         mSize = searchPhotoList.size();
         if(null != getIntent()) {
             mCurrentPage = getIntent().getIntExtra(EXTRA_PHOTO_INDEX, 0);
         }
         setContentView(R.layout.photo_slider_activity);
-        mViewPager = findViewById(R.id.photo_pager);
-        mPageAdapter = new MyAdapter(PhotoSliderActivity.this);
+        ViewPager mViewPager = findViewById(R.id.photo_pager);
+        PagerAdapter mPageAdapter = new MyAdapter(PhotoSliderActivity.this);
         mViewPager.setAdapter(mPageAdapter);
         mViewPager.setCurrentItem(mCurrentPage);
         mPageAdapter.notifyDataSetChanged();
