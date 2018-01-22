@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MyFlickrFindr</string>
+    <string name="search_photo_initial_message">Search with keyword.\nPhotos will Show up here...</string>
+    <string name="search_photo_screen">Flickr Search Photo Screen</string>
+    <string name="photo_viewer_screen">Flickr Photo Screen</string>
+    <string name="photo_viewer_image_desc">Flickr Photo Image</string>
+    <string name="search">Photo Search</string>
+    <string name="search_icon_desc">Search Icon</string>
+    <string name="recent_search_item_text">Recent Search Item</string>
 </resources>
